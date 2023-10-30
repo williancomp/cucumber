@@ -13,6 +13,7 @@ Given('I am on the login page',  {timeout: 10 * 1000}, async function () {
     });
     page = await browser.newPage();
     const absolutePath = path.join(__dirname, '../..', 'index.html');
+    console.log(absolutePath);
     await page.goto(`file://${absolutePath}`);
 });
 
