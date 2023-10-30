@@ -5,7 +5,7 @@ const path = require('path');
 let browser;
 let page;
 
-Given('I am on the login page', async function () {
+Given('I am on the login page',  {timeout: 10 * 1000}, async function () {
     browser = await puppeteer.launch({
         executablePath: process.env.CHROME_BIN || null,
         headless: true,
