@@ -19,6 +19,13 @@ jobs:
 
     - name: Grant execute permissions
       run: chmod +x ./node_modules/.bin/cucumber-js
+    
+    - name: Install Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
 
     - name: Run Cucumber tests
       run: ./node_modules/.bin/cucumber-js
+      env:
+        CHROME_BIN: /usr/bin/google-chrome
