@@ -26,6 +26,8 @@ When('I enter valid credentials', async function () {
 
 Then('I should be taken to the dashboard', async function () {
     const url = await page.url();
+    console.log("URL::");
+    console.log(url);
     if (!url.includes('dashboard.html')) {
         throw new Error('Not on the dashboard page');
     }
