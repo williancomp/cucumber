@@ -5,7 +5,7 @@ const path = require('path');
 let browser;
 let page;
 
-Given('I am on the login page',  {timeout: 10 * 1000}, async function () {
+Given('Estou na página de login',  {timeout: 10 * 1000}, async function () {
     browser = await puppeteer.launch({
         executablePath: process.env.CHROME_BIN || null,
         headless: true,
@@ -17,7 +17,7 @@ Given('I am on the login page',  {timeout: 10 * 1000}, async function () {
     await page.goto(`file://${absolutePath}`);
 });
 
-When('I enter valid credentials', async function () {
+When('Eu insiro credenciais válidas', {timeout: 10 * 1000}, async function () {
     await page.type('#email', 'williangarcias10@gmail.com');
     await page.type('#password', '123456');
     const loginButton = await page.$('input[type="submit"]');
@@ -25,12 +25,10 @@ When('I enter valid credentials', async function () {
     await page.waitForNavigation();
 });
 
-Then('I should be taken to the dashboard', async function () {
+Then('Eu deveria ser levado ao dashboard',  {timeout: 10 * 1000}, async function () {
     const url = await page.url();
-    console.log("URL::");
-    console.log(url);
     if (!url.includes('dashboard.html')) {
-        throw new Error('Not on the dashboard page');
+        throw new Error('Não está na página do dashboard');
     }
 
     await browser.close();
