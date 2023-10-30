@@ -12,7 +12,7 @@ Given('I am on the login page', async function () {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     page = await browser.newPage();
-    const absolutePath = path.join(__dirname, '..', 'index.html');
+    const absolutePath = path.join(__dirname, '../..', 'index.html');
     await page.goto(`file://${absolutePath}`);
 });
 
