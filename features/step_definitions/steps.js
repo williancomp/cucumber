@@ -22,6 +22,7 @@ When('I enter valid credentials', async function () {
     await page.type('#password', '123456');
     const loginButton = await page.$('input[type="submit"]');
     await loginButton.click();
+    await page.waitForNavigation();
 });
 
 Then('I should be taken to the dashboard', async function () {
